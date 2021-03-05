@@ -9,7 +9,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public void btnClick(View view){
-        Toast.makeText(this, "the button is clicked now audio will be recorded", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Recording msg.........", Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

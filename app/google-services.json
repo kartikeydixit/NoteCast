@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "592950413426",
+    "project_id": "note-cast",
+    "storage_bucket": "note-cast.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592950413426:android:759ae10bfed8809e885aeb",
+        "android_client_info": {
+          "package_name": "com.example.notecast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592950413426-khs7ppokooaso4mqarug83piei7s7s7o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZqtzSMBNAxxEs5O0Mn0ZjIj6iXN7q0Ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592950413426-khs7ppokooaso4mqarug83piei7s7s7o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

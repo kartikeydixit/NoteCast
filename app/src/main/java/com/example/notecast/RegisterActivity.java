@@ -20,6 +20,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
@@ -30,6 +31,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText name , age , email , password;
     private TextView loginBtn;
     private ProgressBar progressBar;
+
+    private FirebaseAuth firebaseAuth;
+    FirebaseAuth.AuthStateListener authStateListener = new FirebaseAuth.AuthStateListener() {
+        @Override
+        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+            if (firebaseAuth.getCurrentUser() != null) {
+                Intent intent = new Intent(RegisterActivity.this , HomePage.class);
+                finish();
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +60,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         registerBtn = findViewById(R.id.register);
         registerBtn.setOnClickListener(this);
+        loginBtn.setOnClickListener(this);
+
+        FirebaseAuth.AuthStateListener authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if (firebaseAuth.getCurrentUser() != null) {
+                    Intent intent = new Intent(RegisterActivity.this , HomePage.class);
+                    finish();
+                }
+            }
+        };
     }
 
     @Override
@@ -55,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()){
 
             case R.id.login :
-                startActivity(new Intent(this,MainActivity.class));
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 this.finish();
                 break;
 
@@ -118,6 +141,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                     if(task.isSuccessful()){
                                         Toast.makeText(RegisterActivity.this, "Registration Successfully", Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
+                                        startActivity(new Intent(RegisterActivity.this , HomePage.class));
+                                        finish();
                                     }
                                     else{
                                         Toast.makeText(RegisterActivity.this, "1st", Toast.LENGTH_SHORT).show();
